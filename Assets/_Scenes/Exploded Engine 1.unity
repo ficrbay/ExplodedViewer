@@ -447,8 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8472ee1adedce4da988b0c41db9e32d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  rotSpeed: 180
 --- !u!1 &1231452367
 GameObject:
   m_ObjectHideFlags: 0
@@ -583,12 +581,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!4 &1352084858 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5952127509118145490, guid: 3c436a998f646cf4a9b63072c4926c4e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1718045897}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1541149493
 GameObject:
   m_ObjectHideFlags: 0
@@ -2467,7 +2459,6 @@ GameObject:
   - component: {fileID: 1754159478}
   - component: {fileID: 1754159479}
   - component: {fileID: 1754159481}
-  - component: {fileID: 1754159480}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2648,64 +2639,6 @@ MonoBehaviour:
   positionOffset: {x: 0, y: -2, z: 0}
   eulerRotation: {x: -90, y: 90, z: 0}
   localScale: {x: 3, y: 3, z: 3}
-  explosionCenter: {fileID: 1352084858}
-  autoPlay: 0
-  pingPong: 1
-  playSpeed: 0.5
-  accelCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  globalDistanceMul: 1
-  perPieceDelay: 0
-  delayByDistance: 0
-  delayCenter: {x: 0, y: 0, z: 0}
-  noiseAmplitude: 0
-  noiseSeed: 1234
---- !u!114 &1754159480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754159477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6a3205a3ca921f4e82eb5edb8f2e65d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  root: {fileID: 1718045898}
-  layerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  includeInactive: 0
-  checkInterval: 0.1
-  neighborSkin: 0.02
-  penetrationThreshold: 0.01
-  penetrationRate: 0
-  testedPairs: 0
-  overlapPairs: 0
-  partsCount: 0
 --- !u!114 &1754159481
 MonoBehaviour:
   m_ObjectHideFlags: 0

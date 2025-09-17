@@ -1847,6 +1847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 0
+  castShadow: 0
+  recieveShadow: 0
 --- !u!1 &4493084086928904241
 GameObject:
   m_ObjectHideFlags: 0

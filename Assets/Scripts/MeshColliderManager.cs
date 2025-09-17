@@ -17,7 +17,7 @@ public class MeshColliderManager : MonoBehaviour
         foreach (MeshRenderer renderer in renderers)
         {
             meshCollider = renderer.gameObject.AddComponent<MeshCollider>();
-            meshCollider.convex = isTrigger;
+            meshCollider.convex = true;
             meshCollider.isTrigger = isTrigger;
             renderer.receiveShadows = recieveShadow;
             renderer.shadowCastingMode = castShadow ? UnityEngine.Rendering.ShadowCastingMode.On : UnityEngine.Rendering.ShadowCastingMode.Off;

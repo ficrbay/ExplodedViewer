@@ -1,18 +1,17 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplosionCamera : MonoBehaviour
 {
     public static ExplosionCamera Instance;
-
     public static bool hasMoved;
-
     public static bool isMoving;
 
     Vector3 origPosition;
 
-    const float MOVE_STEP = .15f;
+    // —— 新增：可调速度 ——
+    public float moveSpeed = 2f;   // m/s
+    public float rotSpeed = 180f;  // deg/s
 
     private void Awake()
     {
@@ -35,9 +34,9 @@ public class ExplosionCamera : MonoBehaviour
         Vector3 targetPosition = target.position;
         isMoving = true;
 
-        while (transform.position != targetPosition)
+        while ((transform.position - targetPosition).sqrMagnitude > 1e-6f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, MOVE_STEP);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
@@ -50,25 +49,23 @@ public class ExplosionCamera : MonoBehaviour
     {
         isMoving = true;
 
-        Debug.Log(transform.eulerAngles);
-
-        while (transform.eulerAngles.sqrMagnitude > 10)
+        // 回正旋转
+        while (Quaternion.Angle(transform.rotation, Quaternion.identity) > 0.1f)
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, 1);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.identity, rotSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
-
         transform.rotation = Quaternion.identity;
 
-        while (transform.position != targetPosition)
+        // 平移
+        while ((transform.position - targetPosition).sqrMagnitude > 1e-6f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, MOVE_STEP);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
 
         PseudoRotator.target = targetPosition == origPosition ? ExplosionManager.Instance.explosionParent : transform;
         hasMoved = targetPosition != origPosition;
-
         isMoving = false;
     }
 }
